@@ -1096,6 +1096,18 @@ defmodule File do
     * `:eisdir`  - the named file is a directory
 
   Check `File.open/2` for other available options.
+
+   ## Examples
+
+      # Write to "file_with_content.txt" located at relative path
+      # "path/to/file"
+      File.write("path/to/file/file_with_content.txt", "File content")
+      #=> :ok
+      
+      # Create "empty_file.txt" at relative path "path/to/file"
+      File.write("path/to/file/empty_file.txt", "")
+      #=> :ok
+
   """
   @spec write(Path.t(), iodata, [mode]) :: :ok | {:error, posix}
   def write(path, content, modes \\ []) do
